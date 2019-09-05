@@ -49,5 +49,9 @@ public class PoissonBackgroundModel extends BackgroundModel{
 	protected float calcExpectedCount(){
 		return(float)((totalReads*binWidth)/(regionLength*mappableRegion));
 	}
+	
+	public static void main(String[] args) {
+		System.out.println(new PoissonBackgroundModel(-1, -10, 30, 100, 0.8, 200, '.', 1, true).calcCountThreshold());
+	}
 }
 

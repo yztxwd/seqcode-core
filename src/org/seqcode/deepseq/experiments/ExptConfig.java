@@ -384,6 +384,7 @@ public class ExptConfig {
 				"\t--nocache [flag to turn off caching of the entire set of experiments (i.e. run slower with less memory)]\n" +
 				"\t--not1reads / --loadt2reads [flags to use Type1 or Type2 reads] (Type1 loaded by default)\n" +
 				"\t--noread2 [flag to ignore second reads in paired-end]\n" +
+				"\t--loadpairs [flag to load pair-end reads]\n" + 
 				""));
 	}
 }
