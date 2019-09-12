@@ -1364,7 +1364,7 @@ public class HitCache implements HitCacheInterface{
 	 * Beware: only works if all reads are loaded.
 	 * @param perBaseScaling float threshold
 	 */
-	protected void linearCountCorrection(float perBaseScaling){
+	public void linearCountCorrection(float perBaseScaling){
 		if(perBaseScaling<1)
 			System.err.println("linearCountCorrection: perBaseScaling is less than 1 - makes no sense to scale");
 		else{
