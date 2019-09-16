@@ -281,7 +281,7 @@ public class HierarchicalHitInfo {
 			if (filespace_id >= 0) {
 				H5.H5Sselect_hyperslab(filespace_id, HDF5Constants.H5S_SELECT_SET, start, null, count, null);
 				
-				// write the sorted element back to the dataset
+				// write the element to the dataset
 				memspace_id = H5.H5Screate_simple(rank, new long[] {1, 1, flag[convertIndex(chr, strand)]}, null);
 				if (dataset_id >= 0)
 					H5.H5Dwrite(dataset_id, HDF5Constants.H5T_NATIVE_DOUBLE, memspace_id, 
