@@ -245,8 +245,9 @@ public class ExperimentManager {
 				System.err.println(" Condition "+cond.getName()+":\t#Replicates:\t"+cond.getReplicates().size());
 				for(ControlledExperiment r : cond.getReplicates()){
 					System.err.println("\tReplicate:\t"+r.getName());
-					if(r.getControl()==null)
+					if(r.getControl()==null) {
 						System.err.println(String.format("\t\tSignal:\t%.1f", r.getSignal().getHitCount()));
+					}
 					else
 						System.err.println(String.format("\t\tSignal:\t%.1f\tControl:\t%.1f\tScalingFactor:\t%.3f",  r.getSignal().getHitCount(), r.getControl().getHitCount(), r.getControlScaling()));
 				}
@@ -308,7 +309,7 @@ public class ExperimentManager {
 			for(ExperimentTarget t : manager.getTargets()){
 				System.err.println("Target "+t.getName()+":\t#Experiments:\t"+t.getTargetExperiments().size());
 			}
-			
+						
 			manager.close();
 		}
 	}
