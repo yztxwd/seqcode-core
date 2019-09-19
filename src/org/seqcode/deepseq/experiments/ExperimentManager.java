@@ -6,11 +6,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.xml.stream.events.EndDocument;
+
 import org.seqcode.data.seqdata.SeqDataLoader;
 import org.seqcode.deepseq.hitloaders.HitLoader;
 import org.seqcode.deepseq.hitloaders.HitLoaderFactory;
 import org.seqcode.genome.Genome;
 import org.seqcode.genome.GenomeConfig;
+import org.seqcode.genome.location.Region;
 import org.seqcode.gseutils.Pair;
 
 
@@ -309,8 +312,16 @@ public class ExperimentManager {
 			for(ExperimentTarget t : manager.getTargets()){
 				System.err.println("Target "+t.getName()+":\t#Experiments:\t"+t.getTargetExperiments().size());
 			}
-						
-			manager.close();
+			
+			// load reads iteratively to get heap
+			while(true)
+				for(ExperimentCondition ec: manager.getConditions())
+					for(ControlledExperiment ce: ec.getReplicates())
+						for(String chr: gconfig.getGenome().getChromList()) {
+							int start = (int)Math.round(Math.random()*10000 + 20000);
+							int end = start + (int)Math.round(Math.random() * 5000);
+							ce.getSignal().getPairsByMid(new Region(gconfig.getGenome(), chr, start, end));
+						}
 		}
 	}
 }
