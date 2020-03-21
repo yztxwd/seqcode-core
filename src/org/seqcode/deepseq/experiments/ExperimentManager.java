@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.xml.stream.events.EndDocument;
-
 import org.seqcode.data.seqdata.SeqDataLoader;
 import org.seqcode.deepseq.hitloaders.HitLoader;
 import org.seqcode.deepseq.hitloaders.HitLoaderFactory;
